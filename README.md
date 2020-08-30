@@ -1,5 +1,5 @@
 
-简书地址: 
+简书地址:  https://www.jianshu.com/p/b3665b1c238e
 
 早就略有耳闻TikTok会有锁区，结合一些 知乎上的文章 如 : https://zhuanlan.zhihu.com/p/181691137，
 
