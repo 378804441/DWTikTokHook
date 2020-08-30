@@ -1,0 +1,10 @@
+Package: com.ding.tiktok
+Name: TikTok_hook
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: ding
+Author: ding
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
+Version: 0.0.1-86+debug
+Installed-Size: 208
