@@ -37,7 +37,7 @@ hook代码查看源码即可
 
 
 # 非越狱手机注入动态库重签安装
-* 砸壳app一个
+* 砸壳市场下载TikTok app
 * 先从自己xocde项目上跑出一个合法的 描述文件(在 ipa里面有 embedded.mobileprovision) 备用
 * 先处理一下 描述文件 (用下述俩条命令 获取  entitlements.plist)
     * security cms -D -i  xxx/embedded.mobileprovision  >  embedded_full.plist
