@@ -1,6 +1,7 @@
 
 简书地址:  https://www.jianshu.com/p/b3665b1c238e
 
+# 简介 
 早就略有耳闻TikTok会有锁区，结合一些 知乎上的文章 如 : https://zhuanlan.zhihu.com/p/181691137，
 
 某宝上tiktok电话卡
@@ -33,7 +34,9 @@ hook代码查看源码即可
 目前这个版本插件切换区域后需要重启一下 app，没有做实时生效功能，等有时间的把这个坑填一下。
 
 
-#非越狱手机注入动态库重签安装
+
+
+# 非越狱手机注入动态库重签安装
 * 砸壳app一个
 * 先从自己xocde项目上跑出一个合法的 描述文件(在 ipa里面有 embedded.mobileprovision) 备用
 * 先处理一下 描述文件 (用下述俩条命令 获取  entitlements.plist)
