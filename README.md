@@ -43,6 +43,7 @@ hook代码查看源码即可
     * security cms -D -i  xxx/embedded.mobileprovision  >  embedded_full.plist
     * /usr/libexec/PlistBuddy -x -c 'Print:Entitlements'  embedded_full.plist   >    entitlements.plist
 * 开始处理dylib
+    * dylib 目录:  TiktokHookTheos/.theos/obj/debug/TikTok_hook.dylib
     * 通过 otool -L TikTok_hook.dylib 命令查看 dylib注入是否依赖着 CydiaSubstrate
     * 如果依赖着 CydiaSubstrate 通过  下面命令将 依赖路径修改为libsubstrate.dylib （越狱注入动态库依赖 CydiaSubstrate库，但非越狱手机没有。所以需要修改一下 注入库依赖 ）
         * libsubstrate.dylib 我放在 libsubstrate_dylib文件夹下了。这里有个深坑，很多上古文章推荐的 libsubstrate.dylib 很老很老了。iOS9以上 使用他依赖动态库注入的话必崩。
