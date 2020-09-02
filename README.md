@@ -33,19 +33,29 @@ hook代码查看源码即可
 目前这个版本插件切换区域后需要重启一下 app，没有做实时生效功能，等有时间的把这个坑填一下。
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#非越狱手机注入动态库重签安装
+* 砸壳app一个
+* 先从自己xocde项目上跑出一个合法的 描述文件(在 ipa里面有 embedded.mobileprovision) 备用
+* 先处理一下 描述文件 (用下述俩条命令 获取  entitlements.plist)
+    * security cms -D -i  xxx/embedded.mobileprovision  >  embedded_full.plist
+    * /usr/libexec/PlistBuddy -x -c 'Print:Entitlements'  embedded_full.plist   >    entitlements.plist
+* 开始处理dylib
+    * 通过 otool -L xxx.dylib 命令查看 dylib注入是否依赖着 CydiaSubstrate
+    * 如果依赖着 CydiaSubstrate 通过  下面命令将 依赖路径修改为libsubstrate.dylib （越狱注入动态库依赖 CydiaSubstrate库，但非越狱手机没有。所以需要修改一下 注入库依赖 ）
+        * libsubstrate.dylib 我放在 libsubstrate_dylib文件夹下了。这里有个深坑，很多上古文章推荐的 libsubstrate.dylib 很老很老了。iOS9以上 使用他依赖动态库注入的话必崩。
+        * 替换动态库依赖 install_name_tool -change /Library/Frameworks/CydiaSubstrate.framework/CydiaSubstrate @loader_path/libsubstrate.dylib  TikTok_hook.dylib
+    * 通过 optool 注入工具 进行二进制注入
+        * optool install -c load -p "@executable_path/TikTok_hook.dylib" -t  xxx/xxx.app/xxx
+    * 将TikTok_hook.dylib和libsubstrate.dylib 复制进 xxx.app里面
+* 开始签名
+    * 需要将  TikTok_hook.dylib 和 libsubstrate.dylib 重签名
+        * codesign -f -s "iPhone Developer: xxx(xxx)"     xxx/xxx.app/TikTok_hook.dylib
+        * codesign -f -s "iPhone Developer: xxx(xxx)"     xxx/xxx.app/libsubstrate.dylib
+    * codesign -f -s "iPhone Developer: xxx(xxx)" --entitlements entitlements.plist  xxx/xxx.app
+        * 签名时候别嫌麻烦，所有framework都要进行一遍重签名。
+        * 跨进程扩展都要删除掉 (在plugins 文件下)
+* 打包ipa
+    * zip -ry xxx.ipa Playload/
 
 
 
