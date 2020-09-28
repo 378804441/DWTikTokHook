@@ -2,7 +2,7 @@
 简书地址:  https://www.jianshu.com/p/b3665b1c238e
 
 # 简介 
-早就略有耳闻TikTok会有锁区，结合一些 知乎上的文章 如 : https://zhuanlan.zhihu.com/p/181691137，
+早就略有耳闻TikTok会有锁区，结合一些 知乎上的文章 如 : https://zhuanlan.zhihu.com/p/181691137
 
 某宝上tiktok电话卡
 还有在某宝上贩卖的TikTok国外电话卡就能基本确定，TikTok就是通过获取 MCC(移动国家码)和 MNC(移动网络码) 进行锁区的了。
